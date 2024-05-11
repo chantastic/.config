@@ -1,0 +1,16 @@
+# blocklist everything that exists today
+
+.DS_Store
+.clj-kondo/
+.gitignore.swp
+.lsp/
+atuin/
+gh/
+git/
+iterm2/
+karabiner.edn
+karabiner/
+nvim/
+op/
+raycast/
+
