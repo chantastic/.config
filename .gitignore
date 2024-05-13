@@ -4,7 +4,6 @@
 .clj-kondo/
 .gitignore.swp
 .lsp/
-atuin/
 gh/
 iterm2/
 nvim/
