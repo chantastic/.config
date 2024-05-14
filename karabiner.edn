@@ -1,4 +1,5 @@
-{:simlayers {:period-mode {:key :period}}
+{:simlayers {:period-mode {:key :period}
+             :comma-mode {:key :comma}}
 
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'",
              :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
@@ -17,11 +18,11 @@
                  [:t [:launch "Terminal"]]
                  [:m [:launch "Messages"]]]}
 
-        {:des "open mode"
-         :rules [:open-mode
-                 [:c [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
-                 [:d [:open "~/.dotfiles/chan.dev -a 'Visual Studio Code'"]]
-                 [:s [:open "~/sites -a 'Visual Studio Code'"]]]}
+        {:des "comma mode"
+         :rules [:comma-mode
+                 [:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
+                 [:c [:open "~/.config -a 'Visual Studio Code'"]]
+                 [:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]]}
 
         {:des "locate mode"
          :rules [:locate-mode
