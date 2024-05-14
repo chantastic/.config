@@ -1,3 +1,5 @@
+; links
+;; command shorthand: https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md#command-a-to-control-1
 {:simlayers {:period-mode {:key :period}
              :comma-mode {:key :comma}}
 
