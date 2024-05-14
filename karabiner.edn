@@ -1,24 +1,21 @@
-{:simlayers {:period-mode {:key :period}
-             :launch-mode {:key :a}
-             :open-mode {:key :o}
-             :locate-mode {:key :l}
-             :display-mode {:key :d}}
+{:simlayers {:period-mode {:key :period}}
 
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'",
              :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
              :open "open %s"}
 
- :main [{:des "launch mode"
-         :rules [:launch-mode
-                 [:b [:launch "Arc"]]
-                 [:c [:launch "Calendar"]]
-                 [:e [:launch "Visual Studio Code"]]
+ :main [{:des "period mode"
+         :rules [:period-mode
+                 [:a [:launch "Calendar"]]
+                 [:b [:launch "Google Chrome"]]
+                 [:c [:launch "Code"]]
+                 [:e [:launch "Code"]]
                  [:f [:launch "Finder"]]
-                 [:l [:launch "Superhuman"]]
+                 [:l [:launch "Mail"]]
                  [:m [:launch "Messages"]]
                  [:n [:launch "Notes"]]
                  [:t [:launch "Terminal"]]
-                 [:s [:launch "Ecamm Live"]]]}
+                 [:m [:launch "Messages"]]]}
 
         {:des "open mode"
          :rules [:open-mode
@@ -34,17 +31,16 @@
                  [:6 [:open "http://localhost:6006"]]
                  [:7 [:open "http://localhost:7890"]]
                  [:8 [:open "http://localhost:8080"]]
-                 [:9 [:open "http://localhost:9000"]]
-                 ]}
+                 [:9 [:open "http://localhost:9000"]]]}
 
         {:des "display mode"
          :rules [:display-mode
                  [:1 [:displayplacer "2560x1440"]]
                  [:2 [:displayplacer "1920x1080"]]]}
 
-        {:des "period mode"
-         :rules [:period-mode
-                 [:d :!S9]
-                 [:f :!S0]
-                 [:a [:!Sgrave_accent_and_tilde :slash]]
-                 [:s [:period :!S8]]]}]}
+        ; fully expanded version
+        ;; {:des "period mode"
+        ;;  :rules [[:c [:launch "Calendar"] :period-mode]
+        ;;          [:b [:launch "Google Chrome"] :period-mode]
+        ;;          [:m [:launch "Messages"] :period-mode]]}
+        ]}

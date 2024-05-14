@@ -15,16 +15,16 @@
         "basic.to_if_held_down_threshold_milliseconds" : 500
       },
       "rules" : [ {
-        "description" : "launch mode",
+        "description" : "period mode",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "b"
+            "key_code" : "a"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Arc\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -36,15 +36,60 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Arc\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
+              "key_code" : "period"
+            }, {
               "key_code" : "a"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "period-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "b"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e 'tell application \"Google Chrome\" to activate'"
+          } ],
+          "conditions" : [ {
+            "name" : "period-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "period-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e 'tell application \"Google Chrome\" to activate'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "period"
             }, {
               "key_code" : "b"
             } ],
@@ -55,7 +100,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -66,10 +111,10 @@
             "key_code" : "c"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -81,15 +126,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "c"
             } ],
@@ -100,7 +145,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -111,10 +156,10 @@
             "key_code" : "e"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Visual Studio Code\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -126,15 +171,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Visual Studio Code\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "e"
             } ],
@@ -145,7 +190,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -159,7 +204,7 @@
             "shell_command" : "osascript -e 'tell application \"Finder\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -171,7 +216,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
@@ -179,7 +224,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "f"
             } ],
@@ -190,7 +235,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -201,10 +246,10 @@
             "key_code" : "l"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Superhuman\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Mail\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -216,15 +261,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Superhuman\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Mail\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "l"
             } ],
@@ -235,7 +280,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -249,7 +294,7 @@
             "shell_command" : "osascript -e 'tell application \"Messages\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -261,7 +306,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
@@ -269,7 +314,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "m"
             } ],
@@ -280,7 +325,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -294,7 +339,7 @@
             "shell_command" : "osascript -e 'tell application \"Notes\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -306,7 +351,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
@@ -314,7 +359,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "n"
             } ],
@@ -325,7 +370,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -339,7 +384,7 @@
             "shell_command" : "osascript -e 'tell application \"Terminal\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -351,7 +396,7 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
@@ -359,7 +404,7 @@
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
               "key_code" : "t"
             } ],
@@ -370,7 +415,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -378,13 +423,13 @@
           }
         }, {
           "from" : {
-            "key_code" : "s"
+            "key_code" : "m"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Ecamm Live\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Messages\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "launch-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -396,17 +441,17 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "launch-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Ecamm Live\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Messages\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "a"
+              "key_code" : "period"
             }, {
-              "key_code" : "s"
+              "key_code" : "m"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -415,7 +460,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "launch-mode",
+                  "name" : "period-mode",
                   "value" : 0
                 }
               } ]
@@ -438,38 +483,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "open-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/sites/chan.dev -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "o"
-            }, {
-              "key_code" : "c"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "open-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "d"
           },
@@ -483,38 +496,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "open-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/.dotfiles/chan.dev -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "o"
-            }, {
-              "key_code" : "d"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "open-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "s"
           },
@@ -527,38 +508,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "open-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/sites -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "o"
-            }, {
-              "key_code" : "s"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "open-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
         } ]
       }, {
         "description" : "locate mode",
@@ -576,38 +525,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:1234"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "1"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "3"
           },
@@ -620,38 +537,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:3000"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "3"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
         }, {
           "from" : {
             "key_code" : "4"
@@ -666,38 +551,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:4321"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "4"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "6"
           },
@@ -710,38 +563,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:6006"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "6"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
         }, {
           "from" : {
             "key_code" : "7"
@@ -756,38 +577,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:7890"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "7"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "8"
           },
@@ -801,38 +590,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:8080"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "8"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "9"
           },
@@ -845,38 +602,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "locate-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open http://localhost:9000"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "l"
-            }, {
-              "key_code" : "9"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "locate-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
         } ]
       }, {
         "description" : "display mode",
@@ -894,38 +619,6 @@
           } ],
           "type" : "basic"
         }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "display-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"2560x1440\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "d"
-            }, {
-              "key_code" : "1"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "display-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
           "from" : {
             "key_code" : "2"
           },
@@ -938,237 +631,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "display-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"1920x1080\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "d"
-            }, {
-              "key_code" : "2"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "display-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
-        "description" : "period mode",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "d"
-          },
-          "to" : [ {
-            "key_code" : "9",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "period-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "period-mode",
-              "value" : 1
-            }
-          }, {
-            "key_code" : "9",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "period"
-            }, {
-              "key_code" : "d"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "f"
-          },
-          "to" : [ {
-            "key_code" : "0",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "period-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "period-mode",
-              "value" : 1
-            }
-          }, {
-            "key_code" : "0",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "period"
-            }, {
-              "key_code" : "f"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "a"
-          },
-          "to" : [ {
-            "key_code" : "grave_accent_and_tilde",
-            "modifiers" : [ "left_shift" ]
-          }, {
-            "key_code" : "slash"
-          } ],
-          "conditions" : [ {
-            "name" : "period-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "period-mode",
-              "value" : 1
-            }
-          }, {
-            "key_code" : "grave_accent_and_tilde",
-            "modifiers" : [ "left_shift" ]
-          }, {
-            "key_code" : "slash"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "period"
-            }, {
-              "key_code" : "a"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "s"
-          },
-          "to" : [ {
-            "key_code" : "period"
-          }, {
-            "key_code" : "8",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "period-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "period-mode",
-              "value" : 1
-            }
-          }, {
-            "key_code" : "period"
-          }, {
-            "key_code" : "8",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "period"
-            }, {
-              "key_code" : "s"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
         } ]
       } ]
     },
