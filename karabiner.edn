@@ -1,7 +1,8 @@
 ; links
 ;; command shorthand: https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md#command-a-to-control-1
 {:simlayers {:period-mode {:key :period}
-             :comma-mode {:key :comma}}
+             :comma-mode {:key :comma}
+             :hyphen-mode {:key :hyphen}}
 
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'",
              :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
@@ -26,9 +27,10 @@
                  [:c [:open "~/.config -a 'Visual Studio Code'"]]
                  [:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]]}
 
-        {:des "locate mode"
-         :rules [:locate-mode
+        {:des "hyphen mode"
+         :rules [:hyphen-mode
                  [:1 [:open "http://localhost:1234"]]
+                 [:2 [:open "http://localhost:2426"]]
                  [:3 [:open "http://localhost:3000"]]
                  [:4 [:open "http://localhost:4321"]]
                  [:6 [:open "http://localhost:6006"]]

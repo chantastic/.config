@@ -606,7 +606,7 @@
           }
         } ]
       }, {
-        "description" : "locate mode",
+        "description" : "hyphen mode",
         "manipulators" : [ {
           "from" : {
             "key_code" : "1"
@@ -615,11 +615,88 @@
             "shell_command" : "open http://localhost:1234"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:1234"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "1"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "2"
+          },
+          "to" : [ {
+            "shell_command" : "open http://localhost:2426"
+          } ],
+          "conditions" : [ {
+            "name" : "hyphen-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:2426"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "2"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "3"
@@ -628,11 +705,43 @@
             "shell_command" : "open http://localhost:3000"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:3000"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "3"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "4"
@@ -641,11 +750,43 @@
             "shell_command" : "open http://localhost:4321"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:4321"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "4"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "6"
@@ -654,11 +795,43 @@
             "shell_command" : "open http://localhost:6006"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:6006"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "6"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "7"
@@ -667,11 +840,43 @@
             "shell_command" : "open http://localhost:7890"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:7890"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "7"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "8"
@@ -680,11 +885,43 @@
             "shell_command" : "open http://localhost:8080"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:8080"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "8"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         }, {
           "from" : {
             "key_code" : "9"
@@ -693,11 +930,43 @@
             "shell_command" : "open http://localhost:9000"
           } ],
           "conditions" : [ {
-            "name" : "locate-mode",
+            "name" : "hyphen-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
           "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "hyphen-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open http://localhost:9000"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "hyphen"
+            }, {
+              "key_code" : "9"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "hyphen-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
         } ]
       }, {
         "description" : "display mode",
