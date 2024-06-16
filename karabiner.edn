@@ -10,10 +10,11 @@
 
  :main [{:des "period mode"
          :rules [:period-mode
-                 [:a [:launch "Calendar"]]
-                 [:b [:launch "Google Chrome"]]
-                 [:c [:launch "Code"]]
-                 [:e [:launch "Code"]]
+                 ; non-mneumonic (convenient)
+                 [:u [:launch "Arc"]]
+                 [:comma [:launch "Code"]]
+                 ; mneumonic (convenient)
+                 [:c [:launch "Calendar"]]
                  [:f [:launch "Finder"]]
                  [:l [:launch "Mail"]]
                  [:m [:launch "Messages"]]
@@ -21,11 +22,41 @@
                  [:t [:launch "Terminal"]]
                  [:m [:launch "Messages"]]]}
 
-        {:des "comma mode"
-         :rules [:comma-mode
-                 [:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
-                 [:c [:open "~/.config -a 'Visual Studio Code'"]]
-                 [:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]]}
+        ;{:des "1 > L⇧ (when held)" :rules [[:##1 :left_shift nil {:alone :1}]]}
+        ;{:des "2 > L⌥ (when held)" :rules [[:##2 :left_option nil {:alone :2}]]}
+        ;{:des "3 > L^ (when held)" :rules [[:##3 :left_control nil {:alone :3}]]}
+        ;{:des "4 > L⌘ (when held)" :rules [[:##4 :left_command nil {:alone :4}]]}
+
+        ;{:des "7 > R⌘ (when held)" :rules [[:##7 :right_command nil {:alone :7}]]}
+        ;{:des "8 > R^ (when held)" :rules [[:##8 :right_control nil {:alone :8}]]}
+        ;{:des "9 > R⌥ (when held)" :rules [[:##9 :right_option nil {:alone :9}]]}
+        ;{:des "0 > R⇧ (when held)" :rules [[:##0 :right_shift nil {:alone :0}]]}
+
+        ;{:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]}
+        ;{:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
+
+        ;{:des "comma mode"
+        ; :rules [:comma-mode
+        ;         [:r :keypad_9]
+        ;         [:c :keypad_8]
+        ;         [:g :keypad_7]
+        ;         [:n :keypad_6]
+        ;         [:t :keypad_5]
+        ;         [:h :keypad_4]
+        ;         [:v :keypad_3]
+        ;         [:w :keypad_2]
+        ;         [:m :keypad_1]
+        ;         [:right_command :keypad_0]
+        ;         [:right_option :keypad_period]
+        ;         [:0 :keypad_slash]
+        ;         [:l :keypad_asterisk]
+        ;         [:s :keypad_hyphen]
+        ;         [:z :keypad_plus]
+        ;         ; keypad_equal_sign, keypad_enter, keypad_comma
+        ;         ;[:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
+        ;         ;[:c [:open "~/.config -a 'Visual Studio Code'"]]
+        ;         ;[:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]
+        ;        ]}
 
         {:des "hyphen mode"
          :rules [:hyphen-mode

@@ -18,10 +18,10 @@
         "description" : "period mode",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "a"
+            "key_code" : "u"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Arc\" to activate'"
           } ],
           "conditions" : [ {
             "name" : "period-mode",
@@ -40,13 +40,13 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Arc\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
               "key_code" : "period"
             }, {
-              "key_code" : "a"
+              "key_code" : "u"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -63,10 +63,10 @@
           }
         }, {
           "from" : {
-            "key_code" : "b"
+            "key_code" : "comma"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Google Chrome\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "conditions" : [ {
             "name" : "period-mode",
@@ -85,13 +85,13 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Google Chrome\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
               "key_code" : "period"
             }, {
-              "key_code" : "b"
+              "key_code" : "comma"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -111,7 +111,7 @@
             "key_code" : "c"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
           } ],
           "conditions" : [ {
             "name" : "period-mode",
@@ -130,58 +130,13 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Calendar\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
               "key_code" : "period"
             }, {
               "key_code" : "c"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "e"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
-          } ],
-          "conditions" : [ {
-            "name" : "period-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "period-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "period"
-            }, {
-              "key_code" : "e"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -461,144 +416,6 @@
               "to_after_key_up" : [ {
                 "set_variable" : {
                   "name" : "period-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
-        "description" : "comma mode",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "s"
-          },
-          "to" : [ {
-            "shell_command" : "open ~/sites/chan.dev -a 'Visual Studio Code'"
-          } ],
-          "conditions" : [ {
-            "name" : "comma-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "comma-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/sites/chan.dev -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "comma"
-            }, {
-              "key_code" : "s"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "comma-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "c"
-          },
-          "to" : [ {
-            "shell_command" : "open ~/.config -a 'Visual Studio Code'"
-          } ],
-          "conditions" : [ {
-            "name" : "comma-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "comma-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/.config -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "comma"
-            }, {
-              "key_code" : "c"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "comma-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "d"
-          },
-          "to" : [ {
-            "shell_command" : "open ~/.dotfiles -a 'Visual Studio Code'"
-          } ],
-          "conditions" : [ {
-            "name" : "comma-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "comma-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "open ~/.dotfiles -a 'Visual Studio Code'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "comma"
-            }, {
-              "key_code" : "d"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "comma-mode",
                   "value" : 0
                 }
               } ]
@@ -1115,6 +932,48 @@
       },
       "fn_function_keys" : [ ],
       "ignore" : true,
+      "disable_built_in_keyboard_if_exists" : false,
+      "mouse_flip_vertical_wheel" : false,
+      "game_pad_swap_sticks" : false,
+      "mouse_flip_horizontal_wheel" : false,
+      "manipulate_caps_lock_led" : false,
+      "mouse_flip_y" : false,
+      "mouse_swap_wheels" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false,
+      "mouse_flip_x" : false
+    }, {
+      "mouse_swap_xy" : false,
+      "identifiers" : {
+        "is_game_pad" : false,
+        "is_keyboard" : true,
+        "is_pointing_device" : false,
+        "product_id" : 45930,
+        "vendor_id" : 1133
+      },
+      "fn_function_keys" : [ ],
+      "ignore" : false,
+      "disable_built_in_keyboard_if_exists" : false,
+      "mouse_flip_vertical_wheel" : false,
+      "game_pad_swap_sticks" : false,
+      "mouse_flip_horizontal_wheel" : false,
+      "manipulate_caps_lock_led" : true,
+      "mouse_flip_y" : false,
+      "mouse_swap_wheels" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false,
+      "mouse_flip_x" : false
+    }, {
+      "mouse_swap_xy" : false,
+      "identifiers" : {
+        "is_game_pad" : false,
+        "is_keyboard" : true,
+        "is_pointing_device" : true,
+        "product_id" : 45079,
+        "vendor_id" : 1133
+      },
+      "fn_function_keys" : [ ],
+      "ignore" : false,
       "disable_built_in_keyboard_if_exists" : false,
       "mouse_flip_vertical_wheel" : false,
       "game_pad_swap_sticks" : false,
