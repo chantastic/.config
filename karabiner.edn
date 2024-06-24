@@ -2,25 +2,29 @@
 ;; command shorthand: https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md#command-a-to-control-1
 {:simlayers {:period-mode {:key :period}
              :comma-mode {:key :comma}
-             :hyphen-mode {:key :hyphen}}
+             :hyphen-mode {:key :hyphen}
+             :slash-mode {:key :slash}}
 
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'",
              :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
-             :open "open %s"}
+             :open "open %s",
+             :open-in-arc "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"%s\"}\nend tell\nend tell'",}
 
  :main [{:des "period mode"
          :rules [:period-mode
                  ; non-mneumonic (convenient)
-                 [:u [:launch "Arc"]]
-                 [:comma [:launch "Code"]]
+                 [:comma [:launch "Arc"]]
+                 [:u [:launch "Code"]]
                  ; mneumonic (convenient)
                  [:c [:launch "Calendar"]]
                  [:f [:launch "Finder"]]
-                 [:l [:launch "Mail"]]
+                 [:l [:launch "Superhuman"]]
                  [:m [:launch "Messages"]]
                  [:n [:launch "Notes"]]
                  [:t [:launch "Terminal"]]
-                 [:m [:launch "Messages"]]]}
+                 [:s [:launch "Slack"]]
+                 [:m [:launch "Messages"]]
+                 [:w [:launch "Warp"]]]}
 
         ;{:des "1 > L⇧ (when held)" :rules [[:##1 :left_shift nil {:alone :1}]]}
         ;{:des "2 > L⌥ (when held)" :rules [[:##2 :left_option nil {:alone :2}]]}
@@ -31,12 +35,13 @@
         ;{:des "8 > R^ (when held)" :rules [[:##8 :right_control nil {:alone :8}]]}
         ;{:des "9 > R⌥ (when held)" :rules [[:##9 :right_option nil {:alone :9}]]}
         ;{:des "0 > R⇧ (when held)" :rules [[:##0 :right_shift nil {:alone :0}]]}
+        {:des "return > R^ (when held)" :rules [[:##return_or_enter :right_control nil {:alone :return_or_enter}]]}
 
         ;{:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]}
         ;{:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
 
-        ;{:des "comma mode"
-        ; :rules [:comma-mode
+        {:des "comma mode"
+         :rules [:comma-mode
         ;         [:r :keypad_9]
         ;         [:c :keypad_8]
         ;         [:g :keypad_7]
@@ -53,30 +58,38 @@
         ;         [:s :keypad_hyphen]
         ;         [:z :keypad_plus]
         ;         ; keypad_equal_sign, keypad_enter, keypad_comma
-        ;         ;[:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
-        ;         ;[:c [:open "~/.config -a 'Visual Studio Code'"]]
-        ;         ;[:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]
-        ;        ]}
+                 [:h [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
+                 [:c [:open "~/.config -a 'Visual Studio Code'"]]
+                 [:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]
+                 ]}
+                
 
-        {:des "hyphen mode"
-         :rules [:hyphen-mode
-                 [:1 [:open "http://localhost:1234"]]
-                 [:2 [:open "http://localhost:2426"]]
-                 [:3 [:open "http://localhost:3000"]]
-                 [:4 [:open "http://localhost:4321"]]
-                 [:6 [:open "http://localhost:6006"]]
-                 [:7 [:open "http://localhost:7890"]]
-                 [:8 [:open "http://localhost:8080"]]
-                 [:9 [:open "http://localhost:9000"]]]}
+        {:des "slash mode"
+         :rules [:slash-mode
+                 [:1 [:open-in-arc "http://localhost:1234"]]
+                 [:2 [:open-in-arc "http://localhost:2426"]]
+                 [:3 [:open-in-arc "http://localhost:3000"]]
+                 [:4 [:open-in-arc "http://localhost:4321"]]
+                 [:5 [:open-in-arc "http://localhost:5173"]]
+                 [:6 [:open-in-arc "http://localhost:6006"]]
+                 [:7 [:open-in-arc "http://localhost:7890"]]
+                 [:8 [:open-in-arc "http://localhost:8080"]]
+                 [:9 [:open-in-arc "http://localhost:9000"]]
+                 [:h [:open-in-arc "https://chan.dev"]]
+                 [:g [:open-in-arc "https://github.com"]]
+                 [:y [:open-in-arc "https://youtube.com"]]
+                 [:x [:open-in-arc "https://x.com/notifications/mentions"]] ; add an open in profile option
+                 ]}
+                 
 
         {:des "display mode"
          :rules [:display-mode
                  [:1 [:displayplacer "2560x1440"]]
-                 [:2 [:displayplacer "1920x1080"]]]}
+                 [:2 [:displayplacer "1920x1080"]]]}]}
 
         ; fully expanded version
         ;; {:des "period mode"
         ;;  :rules [[:c [:launch "Calendar"] :period-mode]
         ;;          [:b [:launch "Google Chrome"] :period-mode]
         ;;          [:m [:launch "Messages"] :period-mode]]}
-        ]}
+        

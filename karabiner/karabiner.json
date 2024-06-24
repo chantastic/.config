@@ -18,7 +18,7 @@
         "description" : "period mode",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "u"
+            "key_code" : "comma"
           },
           "to" : [ {
             "shell_command" : "osascript -e 'tell application \"Arc\" to activate'"
@@ -46,7 +46,7 @@
             "simultaneous" : [ {
               "key_code" : "period"
             }, {
-              "key_code" : "u"
+              "key_code" : "comma"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -63,7 +63,7 @@
           }
         }, {
           "from" : {
-            "key_code" : "comma"
+            "key_code" : "u"
           },
           "to" : [ {
             "shell_command" : "osascript -e 'tell application \"Code\" to activate'"
@@ -91,7 +91,7 @@
             "simultaneous" : [ {
               "key_code" : "period"
             }, {
-              "key_code" : "comma"
+              "key_code" : "u"
             } ],
             "simultaneous_options" : {
               "detect_key_down_uninterruptedly" : true,
@@ -201,7 +201,7 @@
             "key_code" : "l"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Mail\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Superhuman\" to activate'"
           } ],
           "conditions" : [ {
             "name" : "period-mode",
@@ -220,7 +220,7 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Mail\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Superhuman\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
@@ -378,6 +378,51 @@
           }
         }, {
           "from" : {
+            "key_code" : "s"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e 'tell application \"Slack\" to activate'"
+          } ],
+          "conditions" : [ {
+            "name" : "period-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "period-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e 'tell application \"Slack\" to activate'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "period"
+            }, {
+              "key_code" : "s"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "period-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
             "key_code" : "m"
           },
           "to" : [ {
@@ -421,18 +466,15 @@
               } ]
             }
           }
-        } ]
-      }, {
-        "description" : "hyphen mode",
-        "manipulators" : [ {
+        }, {
           "from" : {
-            "key_code" : "1"
+            "key_code" : "w"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:1234"
+            "shell_command" : "osascript -e 'tell application \"Warp\" to activate'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "period-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -444,15 +486,218 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "period-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:1234"
+            "shell_command" : "osascript -e 'tell application \"Warp\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "period"
+            }, {
+              "key_code" : "w"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "period-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        } ]
+      }, {
+        "description" : "return > R^ (when held)",
+        "manipulators" : [ {
+          "to_if_alone" : [ {
+            "key_code" : "return_or_enter"
+          } ],
+          "from" : {
+            "key_code" : "return_or_enter",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_control"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "comma mode",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "shell_command" : "open ~/sites/chan.dev -a 'Visual Studio Code'"
+          } ],
+          "conditions" : [ {
+            "name" : "comma-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "comma-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open ~/sites/chan.dev -a 'Visual Studio Code'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "comma"
+            }, {
+              "key_code" : "h"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "comma-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "c"
+          },
+          "to" : [ {
+            "shell_command" : "open ~/.config -a 'Visual Studio Code'"
+          } ],
+          "conditions" : [ {
+            "name" : "comma-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "comma-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open ~/.config -a 'Visual Studio Code'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "comma"
+            }, {
+              "key_code" : "c"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "comma-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "d"
+          },
+          "to" : [ {
+            "shell_command" : "open ~/.dotfiles -a 'Visual Studio Code'"
+          } ],
+          "conditions" : [ {
+            "name" : "comma-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "comma-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "open ~/.dotfiles -a 'Visual Studio Code'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "comma"
+            }, {
+              "key_code" : "d"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "comma-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        } ]
+      }, {
+        "description" : "slash mode",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "1"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:1234\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:1234\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
             }, {
               "key_code" : "1"
             } ],
@@ -463,7 +708,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -474,10 +719,10 @@
             "key_code" : "2"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:2426"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:2426\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -489,15 +734,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:2426"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:2426\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "2"
             } ],
@@ -508,7 +753,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -519,10 +764,10 @@
             "key_code" : "3"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:3000"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:3000\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -534,15 +779,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:3000"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:3000\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "3"
             } ],
@@ -553,7 +798,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -564,10 +809,10 @@
             "key_code" : "4"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:4321"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:4321\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -579,15 +824,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:4321"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:4321\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "4"
             } ],
@@ -598,7 +843,52 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "5"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:5173\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:5173\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
+            }, {
+              "key_code" : "5"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -609,10 +899,10 @@
             "key_code" : "6"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:6006"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:6006\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -624,15 +914,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:6006"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:6006\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "6"
             } ],
@@ -643,7 +933,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -654,10 +944,10 @@
             "key_code" : "7"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:7890"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:7890\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -669,15 +959,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:7890"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:7890\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "7"
             } ],
@@ -688,7 +978,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -699,10 +989,10 @@
             "key_code" : "8"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:8080"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:8080\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -714,15 +1004,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:8080"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:8080\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "8"
             } ],
@@ -733,7 +1023,7 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
@@ -744,10 +1034,10 @@
             "key_code" : "9"
           },
           "to" : [ {
-            "shell_command" : "open http://localhost:9000"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:9000\"}\nend tell\nend tell'"
           } ],
           "conditions" : [ {
-            "name" : "hyphen-mode",
+            "name" : "slash-mode",
             "value" : 1,
             "type" : "variable_if"
           } ],
@@ -759,15 +1049,15 @@
           },
           "to" : [ {
             "set_variable" : {
-              "name" : "hyphen-mode",
+              "name" : "slash-mode",
               "value" : 1
             }
           }, {
-            "shell_command" : "open http://localhost:9000"
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"http://localhost:9000\"}\nend tell\nend tell'"
           } ],
           "from" : {
             "simultaneous" : [ {
-              "key_code" : "hyphen"
+              "key_code" : "slash"
             }, {
               "key_code" : "9"
             } ],
@@ -778,7 +1068,187 @@
               "key_up_when" : "any",
               "to_after_key_up" : [ {
                 "set_variable" : {
-                  "name" : "hyphen-mode",
+                  "name" : "slash-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://chan.dev\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://chan.dev\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
+            }, {
+              "key_code" : "h"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slash-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "g"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://github.com\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://github.com\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
+            }, {
+              "key_code" : "g"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slash-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "y"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://youtube.com\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://youtube.com\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
+            }, {
+              "key_code" : "y"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slash-mode",
+                  "value" : 0
+                }
+              } ]
+            }
+          }
+        }, {
+          "from" : {
+            "key_code" : "x"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://x.com/notifications/mentions\"}\nend tell\nend tell'"
+          } ],
+          "conditions" : [ {
+            "name" : "slash-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "type" : "basic",
+          "parameters" : {
+            "basic.simultaneous_threshold_milliseconds" : 250
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "slash-mode",
+              "value" : 1
+            }
+          }, {
+            "shell_command" : "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"https://x.com/notifications/mentions\"}\nend tell\nend tell'"
+          } ],
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "slash"
+            }, {
+              "key_code" : "x"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : true,
+              "key_down_order" : "strict",
+              "key_up_order" : "strict_inverse",
+              "key_up_when" : "any",
+              "to_after_key_up" : [ {
+                "set_variable" : {
+                  "name" : "slash-mode",
                   "value" : 0
                 }
               } ]
