@@ -24,7 +24,8 @@
                  [:t [:launch "Terminal"]]
                  [:s [:launch "Slack"]]
                  [:m [:launch "Messages"]]
-                 [:w [:launch "Warp"]]]}
+                 [:w [:launch "Warp"]]
+                 [:z [:launch "zoom.us"]]]}
 
         ;{:des "1 > L⇧ (when held)" :rules [[:##1 :left_shift nil {:alone :1}]]}
         ;{:des "2 > L⌥ (when held)" :rules [[:##2 :left_option nil {:alone :2}]]}
