@@ -1,20 +1,38 @@
 ; links
 ;; command shorthand: https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md#command-a-to-control-1
-{:simlayers {:period-mode {:key :period}
+{:simlayers {
+             ; unlikely to be followed by alphanumeric characters
+             :period-mode {:key :period}
              :comma-mode {:key :comma}
+             :quote-mode {:key :quote}
              :hyphen-mode {:key :hyphen}
-             :slash-mode {:key :slash}}
+             ;; :semicolon-mode {:key :semicolon}
+
+             ; likely to be followed by alphanumeric characters 
+             ;; :backtick-mode {:key :grave_accent_and_tilde}
+             ;; :slash-mode {:key :slash} ;; often used for in-page search
+             }
 
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'",
-             :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
+             ;; :displayplacer "displayplacer 'id:44402D57-1A3C-4E17-B021-A62AE68A07A0 res:\"%s\" hz:60 color_depth:8 enabled:true scaling:on origin:(0,0) degree:0'",
              :open "open %s",
              :open-in-arc "osascript -e ' tell application \"Arc\"\nactivate\ntell front window\nmake new tab with properties {URL:\"%s\"}\nend tell\nend tell'",}
 
- :main [{:des "period mode"
+ :main [
+        ; keyboard symetry
+        ; TODO: currently setting caps_lock to control in the GUI. could be nice to have it ALL in here.
+        {:des "return > R^ (when held)" :rules [[:##return_or_enter :right_control nil {:alone :return_or_enter}]]}
+        
+        ; simulate thumb clusters with ⌘ key
+        {:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]} 
+        {:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
+
+        ; app launcher/switcher layer
+        {:des "period mode"
          :rules [:period-mode
                  ; non-mneumonic (convenient)
                  [:comma [:launch "Arc"]]
-                 [:u [:launch "Code"]]
+                 [:u [:launch "Visual Studio Code"]]
                  ; mneumonic (convenient)
                  [:c [:launch "Calendar"]]
                  [:f [:launch "Finder"]]
@@ -24,49 +42,71 @@
                  [:t [:launch "Terminal"]]
                  [:s [:launch "Slack"]]
                  [:m [:launch "Messages"]]
+                 [:o [:launch "OBS"]]
+                 [:r [:launch "Ecamm Live"]]
                  [:w [:launch "Warp"]]
                  [:z [:launch "zoom.us"]]]}
-
+        
         ;{:des "1 > L⇧ (when held)" :rules [[:##1 :left_shift nil {:alone :1}]]}
         ;{:des "2 > L⌥ (when held)" :rules [[:##2 :left_option nil {:alone :2}]]}
         ;{:des "3 > L^ (when held)" :rules [[:##3 :left_control nil {:alone :3}]]}
         ;{:des "4 > L⌘ (when held)" :rules [[:##4 :left_command nil {:alone :4}]]}
-
+        
         ;{:des "7 > R⌘ (when held)" :rules [[:##7 :right_command nil {:alone :7}]]}
         ;{:des "8 > R^ (when held)" :rules [[:##8 :right_control nil {:alone :8}]]}
         ;{:des "9 > R⌥ (when held)" :rules [[:##9 :right_option nil {:alone :9}]]}
         ;{:des "0 > R⇧ (when held)" :rules [[:##0 :right_shift nil {:alone :0}]]}
-        {:des "return > R^ (when held)" :rules [[:##return_or_enter :right_control nil {:alone :return_or_enter}]]}
 
-        ;{:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]}
-        ;{:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
+        ;; {:des "semicolon mode"
+        ;;  :rules [:semicolon-mode
+        ;;          ;; directional
+        ;;          [:c [:!TOup_arrow]]
+        ;;          [:n [:!TOright_arrow]]
+        ;;          [:t [:!TOdown_arrow]]
+        ;;          [:h [:!TOleft_arrow]]
+        ;;          ;; nmemonic
+        ;;          [:d [:!TOd]]
+        ;;          [:return_or_enter [:!TOreturn_or_enter]]
+        ;;          ]}
+        
+        ; 10-key layer
+        {:des "quote mode" ; 10-key mode
+         :rules [:quote-mode
+                 [:r :keypad_9]
+                 [:c :keypad_8]
+                 [:g :keypad_7]
+                 [:n :keypad_6]
+                 [:t :keypad_5]
+                 [:h :keypad_4]
+                 [:v :keypad_3]
+                 [:w :keypad_2]
+                 [:m :keypad_1]
+                 [:0 :keypad_slash] 
+                 [:l :keypad_asterisk]
+                 [:s :keypad_hyphen]
+                 [:z :keypad_plus]
+                 [:right_command :keypad_0]
+                 [:right_option :keypad_period]
+                 [:return_or_enter :keypad_equal_sign]
+                 ; keypad_enter, keypad_comma
+                 ]}
 
+        ; directory layer
         {:des "comma mode"
          :rules [:comma-mode
-        ;         [:r :keypad_9]
-        ;         [:c :keypad_8]
-        ;         [:g :keypad_7]
-        ;         [:n :keypad_6]
-        ;         [:t :keypad_5]
-        ;         [:h :keypad_4]
-        ;         [:v :keypad_3]
-        ;         [:w :keypad_2]
-        ;         [:m :keypad_1]
-        ;         [:right_command :keypad_0]
-        ;         [:right_option :keypad_period]
-        ;         [:0 :keypad_slash]
-        ;         [:l :keypad_asterisk]
-        ;         [:s :keypad_hyphen]
-        ;         [:z :keypad_plus]
-        ;         ; keypad_equal_sign, keypad_enter, keypad_comma
-                 [:h [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
                  [:c [:open "~/.config -a 'Visual Studio Code'"]]
-                 [:d [:open "~/.dotfiles -a 'Visual Studio Code'"]]
+                 [:d [:open "~/Desktop -a 'Finder'"]]
+                 [:h [:open "~ -a 'Finder'"]]
+                 [:l [:open "~/Downloads -a 'Finder'"]]
+                 [:u [:open "~/Documents -a 'Finder'"]]
+                 [:period [:open "~/.dotfiles -a 'Visual Studio Code'"]]
+                 [:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
                  ]}
-                
+        
 
-        {:des "slash mode"
-         :rules [:slash-mode
+        ; location layer
+        {:des "hyphen mode"
+         :rules [:hyphen-mode
                  [:1 [:open-in-arc "http://localhost:1234"]]
                  [:2 [:open-in-arc "http://localhost:2426"]]
                  [:3 [:open-in-arc "http://localhost:3000"]]
@@ -76,17 +116,20 @@
                  [:7 [:open-in-arc "http://localhost:7890"]]
                  [:8 [:open-in-arc "http://localhost:8080"]]
                  [:9 [:open-in-arc "http://localhost:9000"]]
-                 [:h [:open-in-arc "https://chan.dev"]]
+                 ; same hand. gross                 
                  [:g [:open-in-arc "https://github.com"]]
-                 [:y [:open-in-arc "https://youtube.com"]]
+                 [:h [:open-in-arc "https://chan.dev"]]
+                 [:s [:open-in-arc "https://studio.youtube.com"]]
+                 ; not same hand. nice
                  [:x [:open-in-arc "https://x.com/notifications/mentions"]] ; add an open in profile option
-                 ]}
-                 
+                 [:y [:open-in-arc "https://youtube.com"]]]}
+        
 
-        {:des "display mode"
-         :rules [:display-mode
-                 [:1 [:displayplacer "2560x1440"]]
-                 [:2 [:displayplacer "1920x1080"]]]}]}
+        ;; {:des "display mode"
+        ;;  :rules [:display-mode
+        ;;          [:1 [:displayplacer "2560x1440"]]
+        ;;          [:2 [:displayplacer "1920x1080"]]]}
+
 
         ; fully expanded version
         ;; {:des "period mode"
@@ -94,3 +137,4 @@
         ;;          [:b [:launch "Google Chrome"] :period-mode]
         ;;          [:m [:launch "Messages"] :period-mode]]}
         
+]}
