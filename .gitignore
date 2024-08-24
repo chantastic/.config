@@ -9,6 +9,7 @@ iterm2/
 nvim/
 op/
 raycast/
+alacritty/
 
 # allowlist
 karabiner/*
