@@ -32,40 +32,6 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "R⌘ > RETURN (when tapped)",
-        "manipulators" : [ {
-          "to_if_alone" : [ {
-            "key_code" : "return_or_enter"
-          } ],
-          "from" : {
-            "key_code" : "right_command",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "right_command"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "L⌘ > DELETE (when tapped)",
-        "manipulators" : [ {
-          "to_if_alone" : [ {
-            "key_code" : "delete_or_backspace"
-          } ],
-          "from" : {
-            "key_code" : "left_command",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "left_command"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
         "description" : "period mode",
         "manipulators" : [ {
           "from" : {

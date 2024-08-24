@@ -24,8 +24,11 @@
         {:des "return > R^ (when held)" :rules [[:##return_or_enter :right_control nil {:alone :return_or_enter}]]}
         
         ; simulate thumb clusters with ⌘ key
-        {:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]} 
-        {:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
+        ; these really craete more problems than they solve. i'm regularly deleting things (unwittingly) when command-tabbing.
+        ; additionally, the thumb positions just aren't as nice as with legit thumb clusters.
+        ; i'd leave this as a physical-keyboard-only improvement.
+        ;; {:des "R⌘ > RETURN (when tapped)" :rules [[:##right_command :right_command nil {:alone :##return_or_enter}]]} 
+        ;; {:des "L⌘ > DELETE (when tapped)" :rules [[:##left_command :left_command nil {:alone :##delete_or_backspace}]]}
 
         ; app launcher/switcher layer
         {:des "period mode"
