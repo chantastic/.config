@@ -33,22 +33,35 @@
         ; app launcher/switcher layer
         {:des "period mode"
          :rules [:period-mode
-                 ; non-mneumonic (convenient)
-                 [:comma [:launch "Arc"]]
-                 [:u [:launch "Visual Studio Code"]]
-                 ; mneumonic (convenient)
+                 ; right-hand characters (mnemonic)
+                 [:b [:launch "Arc"]]
                  [:c [:launch "Calendar"]]
+                 ; [:d [:launch ""]]
                  [:f [:launch "Finder"]]
+                 ; [:g [:launch ""]]
+                 ; [:h [:launch ""]]
                  [:l [:launch "Superhuman"]]
                  [:m [:launch "Messages"]]
                  [:n [:launch "Notes"]]
-                 [:t [:launch "Terminal"]]
+                 [:r [:launch "OBS"]]
                  [:s [:launch "Slack"]]
-                 [:m [:launch "Messages"]]
-                 [:o [:launch "OBS"]]
-                 [:r [:launch "Ecamm Live"]]
+                 [:t [:launch "Terminal"]]
+                 [:v [:launch "Visual Studio Code"]]
                  [:w [:launch "Warp"]]
-                 [:z [:launch "zoom.us"]]]}
+                 [:z [:launch "zoom.us"]]
+                 [:open_bracket [:!CStab]]
+                 [:close_bracket [:!Ctab]]
+                 ]}
+
+                 ; [:hyphen [:launch ""]]
+                 ; [:slash [:launch ""]]
+                 ; [:backslash [:launch ""]]
+                 ; [:equal_sign [:launch ""]]
+                 ; [:6 [:launch ""]]
+                 ; [:7 [:launch ""]]
+                 ; [:8 [:launch ""]]
+                 ; [:9 [:launch ""]]
+                 ; [:0 [:launch ""]]
         
         ;{:des "1 > L⇧ (when held)" :rules [[:##1 :left_shift nil {:alone :1}]]}
         ;{:des "2 > L⌥ (when held)" :rules [[:##2 :left_option nil {:alone :2}]]}
@@ -99,11 +112,16 @@
          :rules [:comma-mode
                  [:c [:open "~/.config -a 'Visual Studio Code'"]]
                  [:d [:open "~/Desktop -a 'Finder'"]]
-                 [:h [:open "~ -a 'Finder'"]]
+                 ; fgh
                  [:l [:open "~/Downloads -a 'Finder'"]]
-                 [:u [:open "~/Documents -a 'Finder'"]]
-                 [:period [:open "~/.dotfiles -a 'Visual Studio Code'"]]
+                 ; mnr
                  [:s [:open "~/sites/chan.dev -a 'Visual Studio Code'"]]
+                 ; tuvwz
+                 [:7 [:open "~/Desktop -a 'Finder'"]]
+                 [:8 [:open "~/Downloads -a 'Finder'"]]
+                 [:9 [:open "~/Documents -a 'Finder'"]]
+                 [:0 [:open "~ -a 'Finder'"]]
+                 ; -/=\[]
                  ]}
         
 
@@ -115,17 +133,17 @@
                  [:3 [:open-in-arc "http://localhost:3000"]]
                  [:4 [:open-in-arc "http://localhost:4321"]]
                  [:5 [:open-in-arc "http://localhost:5173"]]
+                 [:x [:open-in-arc "https://x.com/notifications/mentions"]] ; add an open in profile option
+                 [:y [:open-in-arc "https://youtube.com"]]
+                 ; same hand. gross                 
                  [:6 [:open-in-arc "http://localhost:6006"]]
                  [:7 [:open-in-arc "http://localhost:7890"]]
                  [:8 [:open-in-arc "http://localhost:8080"]]
                  [:9 [:open-in-arc "http://localhost:9000"]]
-                 ; same hand. gross                 
                  [:g [:open-in-arc "https://github.com"]]
                  [:h [:open-in-arc "https://chan.dev"]]
                  [:s [:open-in-arc "https://studio.youtube.com"]]
-                 ; not same hand. nice
-                 [:x [:open-in-arc "https://x.com/notifications/mentions"]] ; add an open in profile option
-                 [:y [:open-in-arc "https://youtube.com"]]]}
+                 ]}
         
 
         ;; {:des "display mode"
