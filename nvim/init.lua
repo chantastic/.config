@@ -907,6 +907,12 @@ require('lazy').setup({
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  {
+    'kdheepak/lazygit.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -957,5 +963,6 @@ require('lazy').setup({
 
 -- Personalizations
 vim.keymap.set('i', '<M-BS>', '<C-W>', { noremap = true })
+vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Open LazyGit' })
 -- Compatability mode
 -- vim.keymap.set('i', '<Esc><BS>', '<C-W>', { noremap = true })
