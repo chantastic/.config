@@ -45,6 +45,7 @@ brew "whisper-cpp"
 brew "zoxide"
 brew "dopplerhq/cli/doppler" if [ $MACHINE == "work" ]
 brew "jakehilborn/jakehilborn/displayplacer"
+brew "jesseduffield/lazygit/lazygit"
 brew "oven-sh/bun/bun"
 brew "tursodatabase/tap/turso"
 brew "yqrashawn/goku/goku"
