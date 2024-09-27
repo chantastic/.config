@@ -157,6 +157,20 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Custom function to execute a command with temporary scrolloff=0
+local function with_scrolloff_0(cmd)
+  return function()
+    local scrolloff = vim.o.scrolloff
+    vim.o.scrolloff = 0
+    vim.cmd('normal! ' .. cmd)
+    vim.o.scrolloff = scrolloff
+  end
+end
+
+-- Set up custom mappings for zt and zb
+vim.keymap.set('n', 'zt', with_scrolloff_0 'zt', { noremap = true, silent = true })
+vim.keymap.set('n', 'zb', with_scrolloff_0 'zb', { noremap = true, silent = true })
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
