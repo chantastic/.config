@@ -954,3 +954,8 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Personalizations
+vim.keymap.set('i', '<M-BS>', '<C-W>', { noremap = true })
+-- Compatability mode
+-- vim.keymap.set('i', '<Esc><BS>', '<C-W>', { noremap = true })
