@@ -330,6 +330,7 @@ require('lazy').setup({
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
+        { '<leader>l', group = '[L]azy' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
@@ -986,3 +987,4 @@ vim.keymap.set('i', '<M-BS>', '<C-W>', { noremap = true })
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Open LazyGit' })
 -- Compatability mode
 -- vim.keymap.set('i', '<Esc><BS>', '<C-W>', { noremap = true })
+--
