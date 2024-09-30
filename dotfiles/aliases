@@ -1,0 +1,16 @@
+# Unix
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias c="clear"
+
+alias ed="e ~/.dotfiles"
+
+alias l="ls"
+alias ll="ls -al"
+alias ln="ln -v"
+
+alias mkdir="mkdir -p"
+
+alias e="$EDITOR"
+alias v="$VISUAL"

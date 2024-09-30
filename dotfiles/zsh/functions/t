@@ -1,0 +1,10 @@
+# No arguments: `tmux`
+# With arguments: acts like `tmux`
+t() {
+  if [[ $# -gt 0 ]]; then
+    tmux $@
+  else
+    tmux attach
+  fi
+}
+
