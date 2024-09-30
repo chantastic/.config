@@ -4,6 +4,7 @@ echor "Configuring global node env…"
 
 PNPM_GLOBAL_APPS=(
     typescript
+    typescript-language-server
     wrangler
 )
 
