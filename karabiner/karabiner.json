@@ -398,7 +398,7 @@
             "key_code" : "t"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Terminal\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Alacritty\" to activate'"
           } ],
           "conditions" : [ {
             "name" : "period-mode",
@@ -417,7 +417,7 @@
               "value" : 1
             }
           }, {
-            "shell_command" : "osascript -e 'tell application \"Terminal\" to activate'"
+            "shell_command" : "osascript -e 'tell application \"Alacritty\" to activate'"
           } ],
           "from" : {
             "simultaneous" : [ {

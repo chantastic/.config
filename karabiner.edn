@@ -45,7 +45,7 @@
                  [:n [:launch "Notes"]]
                  [:r [:launch "OBS"]]
                  [:s [:launch "Slack"]]
-                 [:t [:launch "Terminal"]]
+                 [:t [:launch "Alacritty"]]
                  [:v [:launch "Visual Studio Code"]]
                  [:w [:launch "Warp"]]
                  [:z [:launch "zoom.us"]]
