@@ -3,9 +3,6 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
-# Editor
-export EDITOR="nvim"
-
 # aliases
 source ~/.aliases
 
