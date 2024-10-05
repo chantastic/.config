@@ -4,8 +4,6 @@ alias ...="cd ../.."
 
 alias c="clear"
 
-alias ed="e ~/.dotfiles"
-
 alias l="ls"
 alias ll="ls -al"
 alias ln="ln -v"
