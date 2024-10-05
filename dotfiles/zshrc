@@ -18,6 +18,7 @@ if type brew &>/dev/null; then
   # compdef must be after compinit
   compdef g=git
   compdef t=tmux
+  compdef m=tmuxinator
   compdef n=nvim
   # compdef p=pnpm # can't because this is a non-deterministic alias
   compdef z=zoxide
