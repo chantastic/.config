@@ -53,6 +53,7 @@ brew "yqrashawn/goku/goku"
 cask "1password" unless [ $MACHINE == "work" ]
 cask "1password-cli"
 cask "alacritty"
+cask "elgato-stream-deck"
 cask "arc"
 cask "backblaze"
 cask "cleanshot" unless [ $MACHINE == "work" ]
