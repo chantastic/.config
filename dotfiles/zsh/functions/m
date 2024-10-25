@@ -1,10 +1,10 @@
 # No arguments: `tmuxinator`
 # With arguments: acts like `tmuxinator`
-t() {
+m() {
   if [[ $# -gt 0 ]]; then
     tmuxinator $@
   else
-    tmuxinator start # doesn't seem to act as expected
+    tmuxinator # doesn't seem to act as expected
   fi
 }
 
