@@ -7,7 +7,8 @@ TERM = "xterm-256color"
 decorations = "Buttonless"
 opacity = 1
 blur = true
-option_as_alt = "both"
+# https://www.perplexity.ai/search/i-m-using-the-alacritty-termin-ULmYZByfRrKBu6WVrqsFZQ
+# option_as_alt = "none"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
