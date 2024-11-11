@@ -1,9 +1,7 @@
 # chantastic .config
 
-I have [dotfiles](https://github.com/chantastic/dotfiles).  
-But more and more of my apps use the [.config](https://github.com/chantastic/config) directory.
-
-Symlinks always suck and I decided to stop keeping config in dotfiles.
+I have some old [dotfiles](https://github.com/chantastic/.dotfiles).  
+But I've moved everything to [./config](https://github.com/chantastic/.config) now that it's a standard place for apps to dump conf.
 
 # Ignorance is bliss
 
