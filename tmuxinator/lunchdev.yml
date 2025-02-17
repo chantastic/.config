@@ -1,0 +1,12 @@
+name: lunchdev
+root: ~/lunch.dev
+
+windows:
+  - editor:
+      panes:
+        - nvim .
+  - server: 
+      panes:
+        - ls
+        - p run dev
+
