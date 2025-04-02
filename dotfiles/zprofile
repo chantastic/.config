@@ -8,8 +8,8 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH=~/.composer/vendor/bin:$PATH
 
 # node (machine dependent)
-if [[ $MACHINE == "work" ]] ; then
-  export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-else
+# if [[ $MACHINE == "work" ]] ; then
+#   export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+# else
   export PATH="/opt/homebrew/opt/node/bin:$PATH"
-fi
+# fi
