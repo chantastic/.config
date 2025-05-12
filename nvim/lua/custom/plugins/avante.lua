@@ -5,6 +5,15 @@ return {
   version = false, -- set this if you want to always pull the latest change
   opts = {
     -- add any opts here
+    provider = 'openai',
+    openai = {
+      endpoint = 'http://localhost:1234/v1', -- LM Studio default endpoint
+      model = 'codestral-22b-v0.1', -- Replace with your loaded model name
+      timeout = 30000,
+      temperature = 0,
+      max_tokens = 4096,
+      ['local'] = true,
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
