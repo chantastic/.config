@@ -1,0 +1,19 @@
+[accounts.personal]
+default = true
+email = "mijoch@gmail.com"
+display-name = "mijoch"
+downloads-dir = "/Users/chan/Downloads"
+backend.type = "imap"
+backend.host = "imap.gmail.com"
+backend.port = 993
+backend.login = "mijoch@gmail.com"
+backend.encryption.type = "tls"
+backend.auth.type = "password"
+backend.auth.command = "op item get ujvehaaxyuwkbddgczflpv7sja --reveal --fields label=password"
+message.send.backend.type = "smtp"
+message.send.backend.host = "smtp.gmail.com"
+message.send.backend.port = 465
+message.send.backend.login = "mijoch@gmail.com"
+message.send.backend.encryption.type = "tls"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.command = "op item get ujvehaaxyuwkbddgczflpv7sja --reveal --fields label=password"
