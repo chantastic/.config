@@ -6,13 +6,13 @@
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'" }
 
  :main [
-        {:des "spacebar (held) => ⌥R)" :rules [[:##spacebar :right_option nil {:alone :spacebar}]]}
-
-        {:des "⌘L (tap) => delete" :rules [[:##left_command :left_command nil {:alone :delete_or_backspace}]]}
-        {:des "⌘R (tap) => return" :rules [[:##right_command :right_command nil {:alone :return_or_enter}]]}
-
-        {:des "^L (tap) => escape" :rules [[:##left_control :left_control nil {:alone :escape}]]}
-        {:des "- (held) ^R" :rules [[:##hyphen :right_control nil {:alone :hyphen}]]}
+        ; {:des "spacebar (held) => ⌥R)" :rules [[:##spacebar :right_option nil {:alone :spacebar}]]}
+        ;
+        ; {:des "⌘L (tap) => delete" :rules [[:##left_command :left_command nil {:alone :delete_or_backspace}]]}
+        ; {:des "⌘R (tap) => return" :rules [[:##right_command :right_command nil {:alone :return_or_enter}]]}
+        ;
+        ; {:des "^L (tap) => escape" :rules [[:##left_control :left_control nil {:alone :escape}]]}
+        ; {:des "- (held) ^R" :rules [[:##hyphen :right_control nil {:alone :hyphen}]]}
 
         ; app launcher/switcher layer
         {:des "period mode"
@@ -24,14 +24,13 @@
                  [:f [:launch "Finder"]]
                  ; [:g [:launch ""]]
                  ; [:h [:launch ""]]
-                 [:l [:launch "Superhuman"]]
+                 [:l [:launch "Mail"]]
                  [:m [:launch "Messages"]]
                  [:n [:launch "Notes"]]
                  [:r [:launch "OBS"]]
                  [:s [:launch "Slack"]]
-                 [:t [:launch "Alacritty"]]
-                 [:v [:launch "Visual Studio Code"]]
-                 [:w [:launch "Warp"]]
+                 [:t [:launch "Ghostty"]]
+                 [:v [:launch "Cursor"]]
                  [:z [:launch "zoom.us"]]
                  [:open_bracket [:!CStab]]
                  [:close_bracket [:!Ctab]]
