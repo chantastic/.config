@@ -334,6 +334,7 @@ require('lazy').setup({
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
+        { '<leader>e', group = '[E]explore' },
         { '<leader>l', group = '[L]azy' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -1000,6 +1001,9 @@ require('lazy').setup({
 -- Personalizations
 vim.keymap.set('i', '<M-BS>', '<C-W>', { noremap = true })
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Open LazyGit' })
+vim.keymap.set('n', '<leader>ee', ':Explore<CR>', { silent = true, desc = 'Open Explore' })
+vim.keymap.set('n', '<leader>es', ':Sexplore<CR>', { silent = true, desc = 'Open SExplore' })
+vim.keymap.set('n', '<leader>ev', ':Vexplore<CR>', { silent = true, desc = 'Open VExplore' })
 -- Compatability mode
 -- vim.keymap.set('i', '<Esc><BS>', '<C-W>', { noremap = true })
 --
