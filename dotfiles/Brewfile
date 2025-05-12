@@ -1,6 +1,5 @@
 tap "buo/cask-upgrade"
 tap "candid82/brew"
-tap "dopplerhq/cli" if [ $MACHINE == "work" ]
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jakehilborn/jakehilborn"
@@ -52,10 +51,7 @@ brew "yqrashawn/goku/goku"
 # now that i've given up on separating work and personal machines, favor MAS version of apps. easier to update
 cask "1password" unless [ $MACHINE == "work" ]
 cask "1password-cli"
-cask "alacritty"
-cask "elgato-stream-deck"
 cask "arc"
-cask "backblaze"
 cask "cleanshot" unless [ $MACHINE == "work" ]
 cask "font-input"
 cask "font-inter"
@@ -74,14 +70,11 @@ cask "keyboard-maestro"
 cask "keycastr"
 cask "mysides"
 cask "obsidian"
-cask "powershell"
 cask "raycast"
 cask "recut"
 cask "rode-central"
 cask "slack"
 cask "swiftdefaultappsprefpane"
-cask "tableplus"
-cask "visual-studio-code"
 cask "zoom"
 mas "1Blocker", id: 1365531024 unless [ $MACHINE == "work" ]
 mas "1Password for Safari", id: 1569813296 unless [ $MACHINE == "work" ]
@@ -93,4 +86,3 @@ mas "Keynote", id: 409183694 unless [ $MACHINE == "work" ]
 mas "Klack", id: 6446206067 unless [ $MACHINE == "work" ]
 mas "Magnet", id: 441258766 unless [ $MACHINE == "work" ]
 mas "Screens 5", id: 1663047912 unless [ $MACHINE == "work" ]
-mas "Things", id: 904280696 unless [ $MACHINE == "work" ]
